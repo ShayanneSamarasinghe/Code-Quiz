@@ -19,7 +19,7 @@
           answers: [ "Yellow", "Red", "Blue", "Green" ],
           correctAnswer: "Blue" },
         { text: "What sound does a dog make?",
-          answers: [ "Woof", "Meow", "Ahhh", "Squeak", "noooooo" ],
+          answers: [ "Woof", "Meow", "Ahhh", "Squeak",],
           correctAnswer: "Woof" },
         { text: "What sound does a cat make?",
           answers: [ "Woof", "Meow", "Ahhh", "Squeak" ],
@@ -30,6 +30,9 @@
     ];
 
 var questionNum = 0;
+let count = 150;
+var timerText = document.getElementById("timer");
+
 
 // function for show nextQuestion
 function nextQuestion(){
@@ -44,8 +47,24 @@ function nextQuestion(){
                
         }
         questionNum++ 
-    }
 
+        setInterval(function(){
+            count -= 1;
+            timerText.textContent = count;
+        }, 1000)
+
+        
+
+           
+
+
+
+        }
+
+
+
+
+    
     nextQuestion()
 
 
