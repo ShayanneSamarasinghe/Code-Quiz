@@ -36,4 +36,17 @@
         }
 
     ];
+    let timer;
+    let questionNum;
+    let statsCorrectAnswers = 0;
+    let statsWrongAnswers = 0;
+    let timerInterval;
+
+    function startGame(){
+          // reset timer to 200secs
+          timer = 200   
+          question = 0;
+          showQuestion();
+
+    }
 
