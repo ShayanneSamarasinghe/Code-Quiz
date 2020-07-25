@@ -43,10 +43,9 @@
     let timerInterval;
 
     function startGame(){
-          // reset timer to 200secs
-          timer = 200   
-          question = 0;
-          showQuestion();
+      timer = 200;
+      timerInterval = setInterval( checkTime, 1000 );
 
-    }
-
+      questionNum = 0;
+      showQuestion();
+  }
