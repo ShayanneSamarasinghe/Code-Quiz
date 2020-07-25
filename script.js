@@ -1,5 +1,4 @@
 
-
 /*
         GIVEN I am taking a code quiz
         WHEN I click the start button
@@ -15,63 +14,26 @@
         */
 
     const questions = [
-        { text: "What colour is the sky?",
+        { 
+          question: "What colour is the sky?",
           answers: [ "Yellow", "Red", "Blue", "Green" ],
-          correctAnswer: "Blue" },
-        { text: "What sound does a dog make?",
+          correctAnswer: "Blue" 
+        },
+        { 
+          question: "What sound does a dog make?",
           answers: [ "Woof", "Meow", "Ahhh", "Squeak",],
-          correctAnswer: "Woof" },
-        { text: "What sound does a cat make?",
+          correctAnswer: "Woof" 
+        },
+        { 
+          question: "What sound does a cat make?",
           answers: [ "Woof", "Meow", "Ahhh", "Squeak" ],
-          correctAnswer: "Meow" },
-        { text: "What colour is grass?",
+          correctAnswer: "Meow" 
+        },
+        { 
+          question: "What colour is grass?",
           answers: [ "Orange", "Red", "Blue", "Green" ],
-          correctAnswer: "Green" }
+          correctAnswer: "Green" 
+        }
+
     ];
 
-var questionNum = 0;
-let count = 150;
-var timerText = document.getElementById("timer");
-
-
-// function for show nextQuestion
-function nextQuestion(){
-        const currentQuestion = questions[questionNum];
-        document.querySelector('#question').innerHTML = currentQuestion.text;
-
-        document.querySelector('#answers').innerHTML = '';
-        for( var i=0; i<currentQuestion.answers.length; i++ ){
-            const activeAnswer = currentQuestion.answers[i];
-            document.querySelector('#answers').innerHTML += 
-                `<button onClick="nextQuestion()" class="buttons">${activeAnswer}</button>`
-               
-        }
-        questionNum++ 
-
-        setInterval(function(){
-            count -= 1;
-            timerText.textContent = count;
-        }, 1000)
-
-        
-
-           
-
-
-
-        }
-
-
-
-
-    
-    nextQuestion()
-
-
-
-
-
-
-
-// Event listener for new question and set of answers
-selectAnswer.addEventListener("click", nextQuestion);
