@@ -42,6 +42,16 @@
     let statsWrongAnswers = 0;
     let timerInterval;
 
+    function checkTime(){
+      timer = timer - 1;
+      document.querySelector('#timer').innerHTML = `${timer} seconds remaining...`;
+  
+      if( timer<1 ){
+          // time is up! end the game
+          showFinished();
+      }
+  }
+
     function startGame(){
       timer = 200;
       timerInterval = setInterval( checkTime, 1000 );
