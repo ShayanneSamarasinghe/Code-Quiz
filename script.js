@@ -52,10 +52,68 @@
       }
   }
 
-    function startGame(){
-      timer = 200;
-      timerInterval = setInterval( checkTime, 1000 );
+  function showQuestion(){
+    const currentQuestion = questions[questionNum];
+    document.querySelector('#questions').innerHTML = currentQuestion.text;
 
-      questionNum = 0;
-      showQuestion();
+    document.querySelector('#answers').innerHTML = '';
+    for( var i=0; i<currentQuestion.answers.length; i++ ){
+        const activeAnswer = currentQuestion.answers[i];
+        document.querySelector('#answers').innerHTML += 
+            `<button onClick="checkAnswer(event,'${activeAnswer}')" class="list-group-item">${activeAnswer}</button>`
+    }
+}
+
+function checkAnswer( event, userAnswer ){
+    event.preventDefault();
+
+    console.log( `[checkAnswer] checking question, answer given: ${userAnswer}` );
+    
+    // check if user got hte question right, 
+    const currentQuestion = questions[questionNum];
+    // display a message            
+    if( currentQuestion.correctAnswer === userAnswer ){
+        document.querySelector('#alertCorrect').style.display = 'block';
+        document.querySelector('#alertWrong').style.display = 'none';
+        statsCorrectAnswers++;
+    } else {
+        document.querySelector('#alertCorrect').style.display = 'none';
+        document.querySelector('#alertWrong').style.display = 'block';
+        statsWrongAnswers++;
+    }
+
+    // move on to next question (if any more exist)
+    questionNum = questionNum+1;
+    if( questionNum >= questions.length ){
+        // we are done! no more questions!
+        showFinished();
+        return;
+    };
+
+    // show next question
+    showQuestion();
+}
+
+function showFinished(){
+  // show whatever code for the finished display here
+  document.querySelector('#alertCorrect').style.display = 'block';
+  document.querySelector('#alertCorrect').innerHTML =  
+      `You got this many right: ${statsCorrectAnswers}, and this many wrong: ${statsWrongAnswers}`;
+  // stop the timer
+  clearInterval( timerInterval );
+}
+
+
+
+
+
+
+
+function startGame(){
+ timer = 200;
+ timerInterval = setInterval( checkTime, 1000 );
+
+  questionNum = 0;
+  showQuestion();
+  
   }

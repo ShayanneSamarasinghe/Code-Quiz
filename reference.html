@@ -114,7 +114,7 @@
             // show whatever code for the finished display here
             document.querySelector('#alertCorrect').style.display = 'block';
             document.querySelector('#alertCorrect').innerHTML =  
-                `Done, your right answers: ${statsCorrectAnswers}, and wrong: ${statsWrongAnswers}`;
+                `You got this many right: ${statsCorrectAnswers}, and this many wrong: ${statsWrongAnswers}`;
             // stop the timer
             clearInterval( timerInterval );
         }
