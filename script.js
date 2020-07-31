@@ -40,7 +40,7 @@
 
   function showQuestion(){
     const currentQuestion = questions[questionNum];
-    document.querySelector('#question').innerHTML = currentQuestion.text;
+    document.querySelector('#question').innerHTML = currentQuestion.question;
 
     document.querySelector('#answers').innerHTML = '';
     for( var i=0; i<currentQuestion.answers.length; i++ ){
@@ -66,6 +66,7 @@ function checkAnswer( event, userAnswer ){
         document.querySelector('#alertCorrect').style.display = 'none';
         document.querySelector('#alertWrong').style.display = 'block';
         statsWrongAnswers++;
+        timer = timer - 100;
     }
 
    
