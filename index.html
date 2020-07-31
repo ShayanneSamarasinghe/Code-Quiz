@@ -5,33 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
     <link rel ="stylesheet" href="style.css" type = "text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
 </head>
 <body>
-    <div id='alertCorrect' class="alert alert-success" style='display:none;'>
-        Good stuff, that was correct!
-      </div>
-      <div id='alertWrong' class="alert alert-danger" style='display:none;'>
-        Sorry that was wrong!
-      </div>
-    <div class = "grid">
-        <div id = "quiz1">
-            <h1>Quiz</h1>
-            <hr style = "margin-bottom: 20px">
+    <div class='container'>
+        <h3 id='timer'></h3>
+        <div id='alertCorrect' class="alert alert-success" style='display:none;'>
+            That was correct
+          </div>
+          <div id='alertWrong' class="alert alert-danger" style='display:none;'>
+            That was wrong
+          </div>
+        <hr />        
+        <h1 id='question'></h1>
+        <ul id='answers' class="list-group">
+          </ul>
 
-            <p id="questions"></p>
-
-            <div class ="buttons" id="answers">
-            </div>
-
-            <hr style = "margin-top: 20px">
-
-            <h3 id="timer"></h3>
-
-           
-        </div>
     </div>
 
     
+
     <script src="script.js"></script>
     
     
